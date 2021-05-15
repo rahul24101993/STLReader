@@ -35,22 +35,22 @@ point extractPoint(std::ifstream& s) {
     return point(x, y, z);
 }
 
-    stlReader readStl(const std::string& stl_path) {
-        std::ifstream stl_file(stl_path, std::ios::binary);
-        char header[80];
-        char numberOfTriangles[4];
-        stl_file.read(header, 80);
-        stl_file.read(numberOfTriangles, 4);
-        stlReader data(header);
-        int inumberOfTriangles = *((int*)numberOfTriangles);
-        for (unsigned int i = 0; i < inumberOfTriangles; i++) {
-            auto normal      = extractPoint(stl_file);
-            auto vertex1     = extractPoint(stl_file);
-            auto vertex2     = extractPoint(stl_file);
-            auto vertex3     = extractPoint(stl_file);
-            data.triangles.push_back(triangle(normal, vertex1, vertex2, vertex3));
-            char attribute[2];
-            stl_file.read(attribute, 2);
-        }
+stlReader readStl(const std::string& stl_path) {
+    std::ifstream stl_file(stl_path, std::ios::binary);
+    char header[80];
+    char numberOfTriangles[4];
+    stl_file.read(header, 80);
+    stl_file.read(numberOfTriangles, 4);
+    stlReader data(header);
+    int inumberOfTriangles = *((int*)numberOfTriangles);
+    for (unsigned int i = 0; i < inumberOfTriangles; i++) {
+        auto normal      = extractPoint(stl_file);
+        auto vertex1     = extractPoint(stl_file);
+        auto vertex2     = extractPoint(stl_file);
+        auto vertex3     = extractPoint(stl_file);
+        data.triangles.push_back(triangle(normal, vertex1, vertex2, vertex3));
+        char attribute[2];
+        stl_file.read(attribute, 2);
+     }
         return data;
-    }
+}

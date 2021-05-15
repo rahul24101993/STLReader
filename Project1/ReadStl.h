@@ -24,11 +24,8 @@
 
         stlReader(std::string name) : name(name) {}
     };
-    std::ostream& operator<<(std::ostream& out, const point p);
-    std::ostream& operator<<(std::ostream& out, const triangle& t);
-
-    
-
+    std::ostream& operator<<(std::ostream& out, const point point);
+    std::ostream& operator<<(std::ostream& out, const triangle& triangle);
     stlReader readStl(const std::string& stl_path);
 
 

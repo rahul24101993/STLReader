@@ -3,37 +3,37 @@
 #include "ReadStl.h"
 
 
-    std::ostream& operator<<(std::ostream& out, const point point) {
-        out << "{" << point.x_coordinate << ", " << point.y_coordinate << ", " << point.z_coordinate << "}" << std::endl;
-        return out;
-    }
+std::ostream& operator<<(std::ostream& out, const point point) {
+   out << "{" << point.x_coordinate << ", " << point.y_coordinate << ", " << point.z_coordinate << "}" << std::endl;
+   return out;
+}
 
-    std::ostream& operator<<(std::ostream& out, const triangle& triangle) {
-        out << "Triangle" << std::endl;
-        std::cout << "Normal ";
-        out << triangle.normal << std::endl;
-        std::cout << "Vertex1 ";
-        out << triangle.vertex1 << std::endl;
-        std::cout << "Vertex2 ";
-        out << triangle.vertex2 << std::endl;
-        std::cout << "Vertex3 ";
-        out << triangle.vertex3 << std::endl;
-        return out;
-    }
+std::ostream& operator<<(std::ostream& out, const triangle& triangle) {
+   out << "Triangle" << std::endl;
+   std::cout << "Normal ";
+   out << triangle.normal << std::endl;
+   std::cout << "Vertex1 ";
+   out << triangle.vertex1 << std::endl;
+   std::cout << "Vertex2 ";
+   out << triangle.vertex2 << std::endl;
+   std::cout << "Vertex3 ";
+   out << triangle.vertex3 << std::endl;
+   return out;
+}
 
-    float extractCoordinate(std::ifstream& s) {
-        char coordinate[sizeof(float)];
-        s.read(coordinate, 4);
-        float* fptr = (float*)coordinate;
-        return *fptr;
-    }
+float extractCoordinate(std::ifstream& s) {
+    char coordinate[sizeof(float)];
+    s.read(coordinate, 4);
+    float* fptr = (float*)coordinate;
+    return *fptr;
+}
 
-    point extractPoint(std::ifstream& s) {
-        float x = extractCoordinate(s);
-        float y = extractCoordinate(s);
-        float z = extractCoordinate(s);
-        return point(x, y, z);
-    }
+point extractPoint(std::ifstream& s) {
+    float x = extractCoordinate(s);
+    float y = extractCoordinate(s);
+    float z = extractCoordinate(s);
+    return point(x, y, z);
+}
 
     stlReader readStl(const std::string& stl_path) {
         std::ifstream stl_file(stl_path, std::ios::binary);

@@ -4,7 +4,7 @@
 
 int main()
 {
-    auto datas = readStl("./Box1x1x1.stl");
+    auto datas = readStl(""); //insert file name
     std::vector<triangle> triangles = datas.triangles;
     std::cout << "Number of triangles : " << triangles.size() << std::endl;
     std::cout << " " << std::endl;

@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="parse_stl.cpp">
+    <ClCompile Include="ReadStl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="parse_stl.h">
+    <ClInclude Include="ReadStl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,6 @@
 #include <fstream>
 #include <iostream>
-#include "parse_stl.h"
+#include "ReadStl.h"
 
 
     std::ostream& operator<<(std::ostream& out, const point point) {
